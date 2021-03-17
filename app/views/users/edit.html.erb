@@ -1,0 +1,53 @@
+<h1>Editing <%= @user.email %> </h1>  
+<h2> <%= @user.first_name %> <%= @user.last_name %></h2>
+  <%= form_with model: @user do |f| %>  
+
+  <% if @user.errors.any? %>  
+
+    <div class="error_messages">  
+
+      <h2>Form is invalid</h2>  
+
+      <ul>  
+
+        <% for message in @user.errors.full_messages %>  
+
+          <li><%= message %></li>  
+
+        <% end %>  
+
+      </ul>  
+
+    </div>  
+
+  <% end %>  
+
+  <p>  
+
+    <%= f.label :birthday %><br />  
+
+    <%= f.text_field :birthday %>  
+
+  </p>  
+
+  <p>  
+
+    <%= f.label :gender %><br />  
+
+    <%= f.text_field :gender %>  
+
+  </p>  
+
+  <p>  
+
+    <%= f.label :university %><br />  
+
+    <%= f.text_field :university %>  
+
+  </p>  
+
+
+
+  <p class="button"><%= f.submit %></p>  
+
+<% end %>  
