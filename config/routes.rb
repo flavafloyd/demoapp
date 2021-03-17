@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+	get "start", :to => "users#new", :as => "start"  
+	get "next(/:id)", :to => "users#edit", :as => "next"
+	get "done", :to => "users#done", :as => "deone"
+	root :to => redirect('/start')
+	resources :users
 end
